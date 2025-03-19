@@ -10,5 +10,5 @@ import org.mapstruct.ReportingPolicy;
         componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.IGNORE
 )public interface SimilarProductsMapper {
-    SimilarProductDTO asSimilarProductsDTO(SimilarProducts similarProducts);
+    SimilarProductDTO areSimilarProductsDTO(SimilarProducts similarProducts);
 }

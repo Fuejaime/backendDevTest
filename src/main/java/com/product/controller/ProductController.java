@@ -20,7 +20,7 @@ public class ProductController {
     @GetMapping(value="/product/{id}/similar")
     public ResponseEntity<SimilarProductDTO> getProductsById(final @PathVariable("id") String id) {
         SimilarProducts similarProducts = productsUseCase.provideSimilarProducts(id);
-        final SimilarProductDTO result = similarProductsMapper.asSimilarProductsDTO(similarProducts);
+        final SimilarProductDTO result = similarProductsMapper.areSimilarProductsDTO(similarProducts);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 

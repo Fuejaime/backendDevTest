@@ -8,5 +8,6 @@ import java.util.List;
 @Data
 @Builder(toBuilder = true)
 public class SimilarProducts {
-    private final List<ProductDetail> details;
+    public final List<ProductDetail> details;
 }
+

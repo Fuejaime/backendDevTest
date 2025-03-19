@@ -1,7 +1,7 @@
 package com.product.infrastructure.mapper;
 
 import com.product.infrastructure.entity.ProductDetail;
-import com.product.infrastructure.entity.response.MockClientResponse;
+import com.product.infrastructure.adapter.response.MockClientResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
