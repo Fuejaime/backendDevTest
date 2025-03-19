@@ -21,6 +21,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDetailEntity getDetailById(String productId) {
         final MockClientResponse mockClientResponse = mockClient.findProductDetail(productId);
+
         return productMapper.asProductDetail(mockClientResponse);
 
     }
