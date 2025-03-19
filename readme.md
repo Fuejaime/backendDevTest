@@ -31,3 +31,10 @@ The following topics will be considered:
 - Code clarity and maintainability
 - Performance
 - Resilience
+
+## ANSWER TEST
+
+- Using Hexagonal Architecture
+- Using Spring Boot
+- Using MockClient for testing
+- Using Circuit Breaker for resilience
