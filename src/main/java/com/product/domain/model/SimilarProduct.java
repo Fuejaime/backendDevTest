@@ -9,7 +9,7 @@ import java.util.List;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class SimilarProductDTO {
+public class SimilarProduct {
 
-    private  List<ProductDetailDTO> details;
+    private  List<ProductDetail> details;
 }

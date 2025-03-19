@@ -7,7 +7,7 @@ import java.util.List;
 
 
 import com.product.domain.ProductUseCase;
-import com.product.infrastructure.entity.ProductDetail;
+import com.product.infrastructure.entity.ProductDetailEntity;
 import com.product.infrastructure.entity.SimilarProducts;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ public class ProductsControllerTest {
         @Test
         void when_getProductsByIdCallIsSuccessful_then_returnOKResponseEntity(){
             final SimilarProducts similarProducts = SimilarProducts.builder()
-                    .details(List.of(ProductDetail.builder()
+                    .details(List.of(ProductDetailEntity.builder()
                             .id(PRODUCT_ID)
                             .name("name")
                             .price(100)
@@ -38,7 +38,7 @@ public class ProductsControllerTest {
                             .build()))
                     .build();
 
-            when(productsUseCase.provideSimilarProducts(PRODUCT_ID)).thenReturn(similarProducts);
+            when(productsUseCase.getSimilarProducts(PRODUCT_ID)).thenReturn(similarProducts);
             productsController.getProductsById(PRODUCT_ID);
 
             verify(similarProductsMapper).areSimilarProductsDTO(similarProducts);

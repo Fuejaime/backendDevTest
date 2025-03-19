@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
-public class ProductDetail {
+public class ProductDetailEntity {
     private final String id;
     private final String name;
     private final Integer price;

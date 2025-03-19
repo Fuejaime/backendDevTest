@@ -3,17 +3,17 @@ package com.product.domain.model;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ProductDetailDTOTest {
+class ProductDetailEntityTest {
 
     @Test
     void testNoArgsConstructor() {
-        ProductDetailDTO product = new ProductDetailDTO();
+        ProductDetail product = new ProductDetail();
         assertThat(product).isNotNull();
     }
 
     @Test
     void testAllArgsConstructor() {
-        ProductDetailDTO product = new ProductDetailDTO("1", "Product 1", 100, true);
+        ProductDetail product = new ProductDetail("1", "Product 1", 100, true);
 
         assertThat(product.getId()).isEqualTo("1");
         assertThat(product.getName()).isEqualTo("Product 1");
@@ -23,7 +23,7 @@ class ProductDetailDTOTest {
 
     @Test
     void testSettersAndGetters() {
-        ProductDetailDTO product = new ProductDetailDTO();
+        ProductDetail product = new ProductDetail();
         product.setId("2");
         product.setName("Product 2");
         product.setPrice(200);
@@ -37,7 +37,7 @@ class ProductDetailDTOTest {
 
     @Test
     void testBuilder() {
-        ProductDetailDTO product = ProductDetailDTO.builder()
+        ProductDetail product = ProductDetail.builder()
                 .id("3")
                 .name("Product 3")
                 .price(300)
@@ -52,8 +52,8 @@ class ProductDetailDTOTest {
 
     @Test
     void testEqualsAndHashCode() {
-        ProductDetailDTO product1 = new ProductDetailDTO("4", "Product 4", 400, true);
-        ProductDetailDTO product2 = new ProductDetailDTO("4", "Product 4", 400, true);
+        ProductDetail product1 = new ProductDetail("4", "Product 4", 400, true);
+        ProductDetail product2 = new ProductDetail("4", "Product 4", 400, true);
 
         assertThat(product1).isEqualTo(product2);
         assertThat(product1.hashCode()).isEqualTo(product2.hashCode());
@@ -61,7 +61,7 @@ class ProductDetailDTOTest {
 
     @Test
     void testToString() {
-        ProductDetailDTO product = new ProductDetailDTO("5", "Product 5", 500, false);
+        ProductDetail product = new ProductDetail("5", "Product 5", 500, false);
 
         assertThat(product.toString()).contains("ProductDetailDTO", "id=5", "name=Product 5", "price=500", "availability=false");
     }

@@ -1,6 +1,6 @@
 package com.product.infrastructure.mapper;
 
-import com.product.infrastructure.entity.ProductDetail;
+import com.product.infrastructure.entity.ProductDetailEntity;
 import com.product.infrastructure.adapter.response.MockClientResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -11,5 +11,5 @@ import org.mapstruct.ReportingPolicy;
 )
 public interface ProductMapper {
 
-    ProductDetail asProductDetail(MockClientResponse mockClientResponse);
+    ProductDetailEntity asProductDetail(MockClientResponse mockClientResponse);
 }

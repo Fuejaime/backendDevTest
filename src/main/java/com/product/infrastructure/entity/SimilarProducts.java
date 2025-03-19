@@ -12,6 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class SimilarProducts {
-    public final List<ProductDetail> details;
+    public final List<ProductDetailEntity> details;
 }
 

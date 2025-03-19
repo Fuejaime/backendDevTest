@@ -2,7 +2,7 @@ package com.product.infrastructure;
 
 import com.product.infrastructure.adapter.MockClient;
 import com.product.infrastructure.adapter.response.MockClientResponse;
-import com.product.infrastructure.entity.ProductDetail;
+import com.product.infrastructure.entity.ProductDetailEntity;
 import com.product.infrastructure.mapper.ProductMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,7 @@ public class ProductServiceImplTest {
     private ProductServiceImpl productServiceImpl;
 
     private MockClientResponse mockClientResponse;
-    private ProductDetail productDetail;
+    private ProductDetailEntity productDetailEntity;
 
     @BeforeEach
     void setUp() {
@@ -39,17 +39,17 @@ public class ProductServiceImplTest {
         mockClientResponse.setPrice(100);
         mockClientResponse.setAvailability(true);
 
-        productDetail = new ProductDetail("1", "Product Name", 100, true);
+        productDetailEntity = new ProductDetailEntity("1", "Product Name", 100, true);
     }
 
     @Test
-    void provideDetailById_shouldReturnProductDetail() {
+    void getDetailById_shouldReturnProductDetail() {
         // Arrange
         when(mockClient.findProductDetail("1")).thenReturn(mockClientResponse);
-        when(productMapper.asProductDetail(mockClientResponse)).thenReturn(productDetail);
+        when(productMapper.asProductDetail(mockClientResponse)).thenReturn(productDetailEntity);
 
         // Act
-        ProductDetail result = productServiceImpl.provideDetailById("1");
+        ProductDetailEntity result = productServiceImpl.getDetailById("1");
 
         // Assert
         assertEquals("1", result.getId());
@@ -59,12 +59,12 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    void provideSimilarIdListById_shouldReturnSimilarIds() {
+    void getSimilarIdListById_shouldReturnSimilarIds() {
         // Arrange
         when(mockClient.findSimilarIds("1")).thenReturn(List.of(2, 3, 4));
 
         // Act
-        List<Integer> result = productServiceImpl.provideSimilarIdListById("1");
+        List<Integer> result = productServiceImpl.getSimilarIdListById("1");
 
         // Assert
         assertEquals(3, result.size());

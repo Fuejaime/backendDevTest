@@ -1,7 +1,7 @@
 package com.product.application.usecase;
 
 import com.product.domain.ProductService;
-import com.product.infrastructure.entity.ProductDetail;
+import com.product.infrastructure.entity.ProductDetailEntity;
 import com.product.infrastructure.entity.SimilarProducts;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -34,19 +34,19 @@ class ProductUseCaseImplTest {
         @Test
         void when_provideSimilarProductsCallServices_then_returnCorrectResponses(){
             Result data = getResult();
-            when(productService.provideSimilarIdListById(PRODUCT_ID)).thenReturn(data.similarIds());
-            when(productService.provideDetailById(anyString())).thenReturn(data.detail());
+            when(productService.getSimilarIdListById(PRODUCT_ID)).thenReturn(data.similarIds());
+            when(productService.getDetailById(anyString())).thenReturn(data.detail());
 
-            final SimilarProducts result = productsUseCase.provideSimilarProducts(PRODUCT_ID);
+            final SimilarProducts result = productsUseCase.getSimilarProducts(PRODUCT_ID);
             final SimilarProducts expectedResult = SimilarProducts.builder().details(List.of(data.detail(), data.detail(), data.detail(), data.detail())).build();
 
             assertThat(result).isEqualTo(expectedResult);
-            verify(productService, times(4)).provideDetailById(anyString());
+            verify(productService, times(4)).getDetailById(anyString());
         }
 
         private static Result getResult() {
             final List<Integer> similarIds = List.of(1,2,3,4);
-            final ProductDetail detail = ProductDetail.builder()
+            final ProductDetailEntity detail = ProductDetailEntity.builder()
                     .id("5")
                     .name("Product")
                     .price(10)
@@ -55,7 +55,7 @@ class ProductUseCaseImplTest {
             return new Result(similarIds, detail);
         }
 
-        private record Result(List<Integer> similarIds, ProductDetail detail) {
+        private record Result(List<Integer> similarIds, ProductDetailEntity detail) {
         }
     }
 }

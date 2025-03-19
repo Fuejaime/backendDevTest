@@ -11,7 +11,6 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-@Slf4j
 public class MockClientImpl implements MockClient {
 
     private final WebClient.Builder webClientBuilder;
@@ -33,7 +32,6 @@ public class MockClientImpl implements MockClient {
     @Override
     public List<Integer> findSimilarIds(String productId){
         final String url = String.format(SIMILAR_ID_URL, productId);
-        log.info("Calling {}", url);
         return webClientBuilder.build()
                 .get()
                 .uri(url)
