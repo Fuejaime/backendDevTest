@@ -20,23 +20,6 @@ public class ProductController {
 
     @GetMapping(value="/product/{id}/similar")
     public ResponseEntity<SimilarProduct> getProductsById(final @PathVariable("id") String id) {
-
-        SimilarProductEntity similarProducts = productsUseCase.getSimilarProducts(id);
-        /*SimilarProduct result = SimilarProduct.builder()
-                .details(similarProducts.getDetails().stream()
-                        .map(productDetailEntity -> ProductDetail.builder()
-                                .id(productDetailEntity.getId()) // Asume que ProductDetail tiene un builder
-                                .name(productDetailEntity.getName()) // Asume que ProductDetail tiene estos campos
-                                .price(productDetailEntity.getPrice())
-                                .availability(productDetailEntity.getAvailability())
-                                // Mapear más campos según sea necesario
-                                .build())
-                        .collect(Collectors.toList()))
-                .build();*/
-        final SimilarProduct result = (similarProductsMapper.toDomain(similarProducts));
-        System.out.println("result: " + result);
-        System.out.println("similarProducts: " + similarProducts);
-
-        return ResponseEntity.status(HttpStatus.OK).body(result);
+        return ResponseEntity.status(HttpStatus.OK).body(similarProductsMapper.toDomain(productsUseCase.getSimilarProducts(id)));
     }
 }

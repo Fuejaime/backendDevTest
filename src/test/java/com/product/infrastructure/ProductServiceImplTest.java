@@ -42,31 +42,25 @@ public class ProductServiceImplTest {
         productDetailEntity = new ProductDetailEntity("1", "Product Name", 100, true);
     }
 
-    /*@Test
+    @Test
     void getDetailById_shouldReturnProductDetail() {
-        // Arrange
         when(mockClient.findProductDetail("1")).thenReturn(mockClientResponse);
         when(productMapper.asProductDetail(mockClientResponse)).thenReturn(productDetailEntity);
 
-        // Act
         ProductDetailEntity result = productServiceImpl.getDetailById("1");
 
-        // Assert
         assertEquals("1", result.getId());
         assertEquals("Product Name", result.getName());
         assertEquals(100, result.getPrice());
         assertEquals(true, result.getAvailability());
-    }*/
+    }
 
     @Test
     void getSimilarIdListById_shouldReturnSimilarIds() {
-        // Arrange
         when(mockClient.findSimilarIds("1")).thenReturn(List.of(2, 3, 4));
 
-        // Act
         List<Integer> result = productServiceImpl.getSimilarIdListById("1");
 
-        // Assert
         assertEquals(3, result.size());
         assertEquals(Integer.valueOf(2), result.get(0));
         assertEquals(Integer.valueOf(3), result.get(1));

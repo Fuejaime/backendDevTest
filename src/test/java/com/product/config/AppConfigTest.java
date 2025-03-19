@@ -17,6 +17,7 @@ class AppConfigTest {
     @Test
     void webClientBuilderBeanShouldBeCreated() {
         WebClient.Builder webClientBuilder = context.getBean(WebClient.Builder.class);
+
         assertNotNull(webClientBuilder, "The bean WebClient.Builder should exist");
     }
 }

@@ -40,9 +40,7 @@ public class ProductsControllerTest {
 
             when(productsUseCase.getSimilarProducts(PRODUCT_ID)).thenReturn(similarProducts);
             productsController.getProductsById(PRODUCT_ID);
-
             verify(similarProductsMapper).toDomain(similarProducts);
         }
     }
-
 }

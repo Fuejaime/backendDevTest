@@ -25,9 +25,6 @@ public class ProductUseCaseImpl implements ProductUseCase {
                 .map(productSimilarId -> productService.getDetailById(productSimilarId.toString()))
                 .collect(Collectors.toList());
 
-        System.out.println("details: " + details);
-        System.out.println("similarIds: " + similarIds);
-
         return SimilarProductEntity.builder()
                 .details(details)
                 .build();
