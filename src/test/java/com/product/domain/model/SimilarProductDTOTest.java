@@ -49,6 +49,6 @@ class SimilarProductDTOTest {
                 .build();
 
         assertThat(similarProductDTO.getDetails()).isNotNull().hasSize(1);
-        assertThat(similarProductDTO.getDetails().getFirst().getId()).isEqualTo("4");
+        assertThat(similarProductDTO.getDetails().get(0).getPrice()).isEqualTo(400);
     }
 }
