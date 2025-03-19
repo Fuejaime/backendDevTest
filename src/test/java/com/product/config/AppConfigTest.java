@@ -8,11 +8,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(classes = AppConfig.class)  // Solo carga AppConfig
+@SpringBootTest(classes = AppConfig.class)
 class AppConfigTest {
 
     @Autowired
-    private ApplicationContext context;  // Contexto de Spring
+    private ApplicationContext context;
 
     @Test
     void webClientBuilderBeanShouldBeCreated() {

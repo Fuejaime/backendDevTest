@@ -20,7 +20,7 @@ import static org.mockito.Mockito.verify;
 
 
 @ExtendWith(MockitoExtension.class)
-public class ProductUseCaseImplTest {
+class ProductUseCaseImplTest {
 
     @Mock
     private ProductService productService;

@@ -4,11 +4,8 @@ import com.product.domain.model.SimilarProductDTO;
 import com.product.infrastructure.entity.SimilarProducts;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 
-@Mapper(
-        componentModel = "spring",
-        unmappedTargetPolicy = ReportingPolicy.IGNORE
-)public interface SimilarProductsMapper {
+@Mapper(componentModel = "spring")
+public interface SimilarProductsMapper {
     SimilarProductDTO areSimilarProductsDTO(SimilarProducts similarProducts);
 }
