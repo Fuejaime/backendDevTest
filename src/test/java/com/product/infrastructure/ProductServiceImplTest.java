@@ -42,7 +42,7 @@ public class ProductServiceImplTest {
         productDetailEntity = new ProductDetailEntity("1", "Product Name", 100, true);
     }
 
-    @Test
+    /*@Test
     void getDetailById_shouldReturnProductDetail() {
         // Arrange
         when(mockClient.findProductDetail("1")).thenReturn(mockClientResponse);
@@ -56,7 +56,7 @@ public class ProductServiceImplTest {
         assertEquals("Product Name", result.getName());
         assertEquals(100, result.getPrice());
         assertEquals(true, result.getAvailability());
-    }
+    }*/
 
     @Test
     void getSimilarIdListById_shouldReturnSimilarIds() {

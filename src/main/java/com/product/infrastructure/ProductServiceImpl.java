@@ -25,12 +25,24 @@ public class ProductServiceImpl implements ProductService {
             log.info("Call mockClient.findSimilarIds");
             final MockClientResponse mockClientResponse = mockClient.findProductDetail(productId);
             log.info("Successful call mockClient.findSimilarIds");
-            return productMapper.asProductDetail(mockClientResponse);
+        ProductDetailEntity productDetailEntity = ProductDetailEntity.builder()
+                .id(mockClientResponse.getId())
+                .name(mockClientResponse.getName())
+                .price(mockClientResponse.getPrice())
+                .availability(mockClientResponse.getAvailability())
+                // Agregar más campos según la estructura de MockClientResponse
+                .build();
+            //ProductDetailEntity productDetailEntity = productMapper.asProductDetail(mockClientResponse);
+            System.out.println("productDetailEntity: " + productDetailEntity);
+            System.out.println("mockClientResponse: " + mockClientResponse);
+
+            return productDetailEntity;
 
     }
 
     @Override
     public List<Integer> getSimilarIdListById(String productId) {
-        return mockClient.findSimilarIds(productId);
+        List<Integer> similarIds = mockClient.findSimilarIds(productId);
+        return similarIds;
     }
 }

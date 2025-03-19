@@ -11,7 +11,8 @@ import java.util.List;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
-public class SimilarProducts {
-    public final List<ProductDetailEntity> details;
+public class SimilarProductEntity {
+    private List<ProductDetailEntity> details;
 }
+
 

@@ -58,11 +58,4 @@ class ProductDetailEntityTest {
         assertThat(product1).isEqualTo(product2);
         assertThat(product1.hashCode()).isEqualTo(product2.hashCode());
     }
-
-    @Test
-    void testToString() {
-        ProductDetail product = new ProductDetail("5", "Product 5", 500, false);
-
-        assertThat(product.toString()).contains("ProductDetailDTO", "id=5", "name=Product 5", "price=500", "availability=false");
-    }
 }

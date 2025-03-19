@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.product.domain.ProductUseCase;
 import com.product.infrastructure.entity.ProductDetailEntity;
-import com.product.infrastructure.entity.SimilarProducts;
+import com.product.infrastructure.entity.SimilarProductEntity;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +21,7 @@ public class ProductsControllerTest {
     @Mock
     private ProductUseCase productsUseCase;
     @Mock
-    private com.product.controller.mapper.SimilarProductsMapper similarProductsMapper;
+    private com.product.controller.mapper.SimilarProductMapper similarProductsMapper;
     @InjectMocks
     private ProductController productsController;
     final private static String PRODUCT_ID = "1";
@@ -29,7 +29,7 @@ public class ProductsControllerTest {
     class GetProductsById{
         @Test
         void when_getProductsByIdCallIsSuccessful_then_returnOKResponseEntity(){
-            final SimilarProducts similarProducts = SimilarProducts.builder()
+            final SimilarProductEntity similarProducts = SimilarProductEntity.builder()
                     .details(List.of(ProductDetailEntity.builder()
                             .id(PRODUCT_ID)
                             .name("name")
@@ -41,7 +41,7 @@ public class ProductsControllerTest {
             when(productsUseCase.getSimilarProducts(PRODUCT_ID)).thenReturn(similarProducts);
             productsController.getProductsById(PRODUCT_ID);
 
-            verify(similarProductsMapper).areSimilarProductsDTO(similarProducts);
+            verify(similarProductsMapper).toDomain(similarProducts);
         }
     }
 

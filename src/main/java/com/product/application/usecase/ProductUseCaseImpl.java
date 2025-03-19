@@ -3,7 +3,7 @@ package com.product.application.usecase;
 import com.product.domain.ProductService;
 import com.product.domain.ProductUseCase;
 import com.product.infrastructure.entity.ProductDetailEntity;
-import com.product.infrastructure.entity.SimilarProducts;
+import com.product.infrastructure.entity.SimilarProductEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ public class ProductUseCaseImpl implements ProductUseCase {
     private final ProductService productService;
 
     @Override
-    public SimilarProducts getSimilarProducts(String productId){
+    public SimilarProductEntity getSimilarProducts(String productId){
 
         final List<Integer> similarIds = productService.getSimilarIdListById(productId);
 
@@ -25,7 +25,10 @@ public class ProductUseCaseImpl implements ProductUseCase {
                 .map(productSimilarId -> productService.getDetailById(productSimilarId.toString()))
                 .collect(Collectors.toList());
 
-        return SimilarProducts.builder()
+        System.out.println("details: " + details);
+        System.out.println("similarIds: " + similarIds);
+
+        return SimilarProductEntity.builder()
                 .details(details)
                 .build();
     }

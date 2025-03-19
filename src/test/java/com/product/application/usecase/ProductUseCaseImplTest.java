@@ -2,7 +2,7 @@ package com.product.application.usecase;
 
 import com.product.domain.ProductService;
 import com.product.infrastructure.entity.ProductDetailEntity;
-import com.product.infrastructure.entity.SimilarProducts;
+import com.product.infrastructure.entity.SimilarProductEntity;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,8 +37,8 @@ class ProductUseCaseImplTest {
             when(productService.getSimilarIdListById(PRODUCT_ID)).thenReturn(data.similarIds());
             when(productService.getDetailById(anyString())).thenReturn(data.detail());
 
-            final SimilarProducts result = productsUseCase.getSimilarProducts(PRODUCT_ID);
-            final SimilarProducts expectedResult = SimilarProducts.builder().details(List.of(data.detail(), data.detail(), data.detail(), data.detail())).build();
+            final SimilarProductEntity result = productsUseCase.getSimilarProducts(PRODUCT_ID);
+            final SimilarProductEntity expectedResult = SimilarProductEntity.builder().details(List.of(data.detail(), data.detail(), data.detail(), data.detail())).build();
 
             assertThat(result).isEqualTo(expectedResult);
             verify(productService, times(4)).getDetailById(anyString());

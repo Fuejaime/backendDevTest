@@ -1,7 +1,7 @@
 package com.product.domain;
 
-import com.product.infrastructure.entity.SimilarProducts;
+import com.product.infrastructure.entity.SimilarProductEntity;
 
 public interface ProductUseCase {
-    SimilarProducts getSimilarProducts(String productId);
+    SimilarProductEntity getSimilarProducts(String productId);
 }
