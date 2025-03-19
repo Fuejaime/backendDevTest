@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     private final ProductUseCase productsUseCase;
-    private final SimilarProductMapper similarProductsMapper;
+    private final SimilarProductMapper similarProductMapper;
 
     @GetMapping(value="/product/{id}/similar")
     public ResponseEntity<SimilarProduct> getProductsById(final @PathVariable("id") String id) {
-        return ResponseEntity.status(HttpStatus.OK).body(similarProductsMapper.toDomain(productsUseCase.getSimilarProducts(id)));
+
+        SimilarProductEntity similarProducts = productsUseCase.getSimilarProducts(id);
+
+        return ResponseEntity.status(HttpStatus.OK).body((similarProductMapper.toDomain(similarProducts)));
     }
 }
