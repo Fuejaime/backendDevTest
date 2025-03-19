@@ -10,5 +10,6 @@ import org.mapstruct.ReportingPolicy;
         unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
 public interface ProductMapper {
+
     ProductDetail asProductDetail(MockClientResponse mockClientResponse);
 }
