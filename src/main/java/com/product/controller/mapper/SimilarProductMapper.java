@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 @Component
 public class SimilarProductMapper {
 
-    // Método para convertir ProductDetailEntity a ProductDetail
     public ProductDetail toProductDetail(ProductDetailEntity entity) {
         return ProductDetail.builder()
                 .id(entity.getId())
@@ -21,12 +20,11 @@ public class SimilarProductMapper {
                 .build();
     }
 
-    // Método para convertir SimilarProductEntity a SimilarProduct
     public SimilarProduct toDomain(SimilarProductEntity entity) {
         return SimilarProduct.builder()
                 .details(entity.getDetails().stream()
-                        .map(this::toProductDetail) // Convertir cada ProductDetailEntity a ProductDetail
-                        .collect(Collectors.toList())) // Colectar todos los detalles en una lista
+                        .map(this::toProductDetail)
+                        .collect(Collectors.toList()))
                 .build();
     }
 }
