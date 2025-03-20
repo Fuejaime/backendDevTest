@@ -27,6 +27,6 @@ public class ProductController {
 
         SimilarProductEntity similarProducts = productsUseCase.getSimilarProducts(id);
 
-        return ResponseEntity.status(HttpStatus.OK).body(similarProductMapper.toDomain(similarProducts););
+        return ResponseEntity.status(HttpStatus.OK).body(similarProductMapper.toDomain(similarProducts));
     }
 }
